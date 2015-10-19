@@ -86,16 +86,8 @@ function Game(hero){
         frame_n = 0;
       }
     }
-  
 
-    //if ((hero.x > 0 || hero.v['x']!= -1) && (hero.x < 760 || hero.v['x']!=1))
-      hero.abs_x += hero.v['x'] * 2;
-      hero.x = hero.abs_x + camera['offset'][0] - camera['position'][0]
-    //if ((hero.y > 0 || hero.v['y']!= -1) && (hero.y < 530 || hero.v['y']!=1))
-      hero.abs_y += hero.v['y'] * 2;
-      hero.y = hero.abs_y + camera['offset'][1]
-      camera['position'] = [hero.abs_x, hero.abs_y]
-
+    hero.updatePosition(camera)
 
     blobs.forEach(function(blob){
       if(blob.y > 575){

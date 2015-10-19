@@ -16,6 +16,16 @@ function Character(texture, x, y, vx, vy, state){
     }
   }
 
+  this.updatePosition = function(camera){
+    //if ((this.x > 0 || this.v['x']!= -1) && (this.x < 760 || this.v['x']!=1))
+    this.abs_x += this.v['x'] * 2;
+    this.x = this.abs_x + camera['offset'][0] - camera['position'][0]
+    //if ((this.y > 0 || this.v['y']!= -1) && (this.y < 530 || this.v['y']!=1))
+    this.abs_y += this.v['y'] * 2;
+    this.y = this.abs_y + camera['offset'][1] - camera['position'][1]
+    camera['position'] = [this.abs_x, this.abs_y]
+  }
+
   this.pick_animation = function(animation_frame){
     var self = this
     if(self.state[1] == 'still'){
